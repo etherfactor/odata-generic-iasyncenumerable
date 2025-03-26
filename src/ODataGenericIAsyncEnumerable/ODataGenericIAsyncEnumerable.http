@@ -1,0 +1,19 @@
+@ODataGenericIAsyncEnumerable_HostAddress = http://localhost:5039
+
+# Will not trigger the issue; curiously, this executes the IEnumerable code, not the IAsyncEnumerable
+GET {{ODataGenericIAsyncEnumerable_HostAddress}}/api/v1/entities?variant=None
+Accept: application/json
+
+###
+
+# Will trigger the issue
+GET {{ODataGenericIAsyncEnumerable_HostAddress}}/api/v1/entities?variant=Typed
+Accept: application/json
+
+###
+
+# Will trigger the issue
+GET {{ODataGenericIAsyncEnumerable_HostAddress}}/api/v1/entities?variant=Generic
+Accept: application/json
+
+###
